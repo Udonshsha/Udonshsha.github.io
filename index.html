@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,11 +42,9 @@
         margin-left: -5px;
         font-weight: 200;
       }
-
       .last.block {
         margin-bottom: 110px;
       }
-
       .horizontal_list {
         margin: 0;
         padding: 0;
@@ -54,15 +52,12 @@
       }
       .horizontal_list li {
         float: left;
+        padding-left: 0;
+        text-indent: 0;
       }
       .horizontal_list li:before {
         content: none;
       }
-      .horizontal_list li {
-        padding-left: 0;
-        text-indent: 0;
-      }
-
       .horizontal_line {
         margin: 34px 0 0 30px;
         height: 26px;
@@ -83,7 +78,6 @@
       .left_circle,
       .central_circle,
       .right_circle {
-        background: rgb(69, 68, 73);
         background: rgba(255, 255, 255, 0.15);
         position: absolute;
         border-radius: 50px;
@@ -112,8 +106,9 @@
         background: url(https://www.toptal.com/designers/subtlepatterns/patterns/dark_wall.png)
           repeat;
         margin: 0;
+        /* 기본 텍스트 색상을 검은색으로 지정 */
+        color: #000;
       }
-
       h1,
       h2,
       h3,
@@ -124,7 +119,6 @@
       }
       h1 {
         font-size: 48px;
-        font-weight: 300;
         margin: 20px 0;
       }
       h2 {
@@ -138,14 +132,13 @@
         font-size: 18px;
         font-weight: 400;
       }
-
       blockquote {
         font-style: italic;
         margin: 25px 0;
         padding-left: 20px;
         border-left: 2px solid #48da9b;
       }
-
+      /* 기존 회색(#e4e3e8)이 적용되던 기본 텍스트를 검은색으로 변경 */
       blockquote,
       p,
       a,
@@ -153,13 +146,11 @@
         font-family: "Lato", Helvetica, sans-serif;
         font-weight: 300;
         font-size: 15px;
-        color: #e4e3e8;
+        color: #000;
       }
-
       a:focus {
         outline: none;
       }
-
       ul {
         list-style: none;
         padding: 0;
@@ -171,6 +162,7 @@
       }
       li:before {
         content: "• ";
+        /* 변경할 필요가 있으면 여기서 색상 조절 */
         color: #837c9a;
         font-size: 20px;
         padding-right: 8px;
@@ -203,10 +195,13 @@
         width: 260px;
         float: left;
       }
+      /* 오른쪽 컨텐츠 컨테이너에 페이지 전환 대상 콘텐츠들을 넣습니다. */
       #content_container {
         width: 699px;
         border-left: 1px solid #403f44;
         float: left;
+        position: relative;
+        min-height: 500px;
       }
       #footer {
         width: 960px;
@@ -229,7 +224,6 @@
         letter-spacing: 2px;
         padding-left: 7px;
       }
-
       .download_print_buttons {
         width: 225px;
         height: 45px;
@@ -260,7 +254,6 @@
       .download_print_buttons a:hover .icon {
         color: #e4e3e8;
       }
-
       .header_menu {
         width: 699px;
         margin-top: 40px;
@@ -269,7 +262,7 @@
       .header_menu a {
         text-decoration: none;
         padding: 0 20px;
-        border-left: 1px solid #e4e3e8;
+        border-left: 1px solid #000;
         font-size: 16px;
         font-weight: 400;
       }
@@ -280,11 +273,7 @@
         color: #837c9a;
       }
 
-      /* LEFT NAV */
-      #left_nav h2 {
-        margin: 0;
-        font-size: 24px;
-      }
+      /* LEFT COL */
       .profile_frame {
         width: 230px;
         height: 260px;
@@ -299,12 +288,10 @@
         background: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/86033/profile/profile-512_3.jpg)
           100% / 210px no-repeat;
       }
-
       .hello_content,
       .contact_details_content {
         margin-top: 25px;
       }
-
       .hello_content {
         width: 230px;
       }
@@ -317,7 +304,6 @@
       .contact_details_content p.purple {
         margin-top: 25px;
       }
-
       .send_message_button,
       .special_button {
         margin-top: 25px;
@@ -371,7 +357,6 @@
       .special_button:hover {
         background: #29c782;
       }
-
       .get_social_content {
         margin-top: 15px;
       }
@@ -408,41 +393,25 @@
         border-top-right-radius: 50px;
         border-bottom-left-radius: 50px;
       }
-
       .footer_name {
         font-style: italic;
         margin-top: 20px;
       }
 
-      /* Profile Content */
-      .profile_quote {
-        position: relative;
-      }
-      .profile_quote p {
-        font-size: 17px;
-        width: 455px;
-      }
-      .profile_quote .entypo-quote {
-        color: #3d3a41;
-        font-size: 80px;
-        font-style: normal;
+      /* 콘텐츠 페이지 섹션 (페이지 전환 대상) */
+      .content_section {
         position: absolute;
-        top: -20px;
-        right: 70px;
-        cursor: default;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        display: none;
       }
-
-      .philosophy_content {
-        margin-top: 20px;
-      }
-      .philosophy_content p {
-        margin: 0;
-        width: 370px;
-        float: left;
-      }
-      .philosophy_content ul {
-        float: left;
-        padding-left: 40px;
+      .content_section.active {
+        opacity: 1;
+        display: block;
+        position: relative;
       }
     </style>
   </head>
@@ -473,15 +442,18 @@
             </li>
           </ul>
           <div class="clear"></div>
+          <!-- 각 메뉴 링크에 data-target 속성을 추가 -->
           <ul class="header_menu horizontal_list">
             <li>
-              <a class="no_border purple" href="#">Profile</a>
+              <a class="no_border purple" href="#" data-target="profile"
+                >Profile</a
+              >
             </li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Work Experience</a></li>
-            <li><a href="#">Featured Projects</a></li>
-            <li><a href="#">Awards</a></li>
+            <li><a href="#" data-target="education">Education</a></li>
+            <li><a href="#" data-target="skills">Skills</a></li>
+            <li><a href="#" data-target="work">Work Experience</a></li>
+            <li><a href="#" data-target="projects">Featured Projects</a></li>
+            <li><a href="#" data-target="awards">Awards</a></li>
           </ul>
         </div>
       </div>
@@ -505,7 +477,7 @@
           <p>+34 123 456 789</p>
           <p class="purple">Email:</p>
           <p>jlalovi@gmail.com</p>
-          <p class="purple">Adress:</p>
+          <p class="purple">Address:</p>
           <p>Someplace, 5</p>
           <p>Jaén, Spain</p>
           <p>23001</p>
@@ -542,84 +514,152 @@
           </ul>
         </div>
       </div>
-      <!-- PROFILE CONTENT -->
+      <!-- 오른쪽 콘텐츠 컨테이너 (페이지 전환 대상 섹션들을 포함) -->
       <div id="content_container">
-        <div class="block">
-          <h1>Profile</h1>
-          <blockquote class="profile_quote">
+        <!-- Profile 섹션 (기본 visible) -->
+        <div id="profile" class="content_section active">
+          <div class="block">
+            <h1>Profile</h1>
+            <blockquote class="profile_quote">
+              <p>
+                "There is no end to education. It is not that you read a book, pass an
+                examination, and finish with education. The whole of life, from the
+                moment you are born to the moment you die, is a process of learning."
+              </p>
+              <p>Jiddu Krishnamurti.</p>
+              <span class="entypo-quote"></span>
+            </blockquote>
+          </div>
+          <div class="block">
+            <h2>A few words about me</h2>
             <p>
-              "There is no end to education. It is not that you read a book, pass an
-              examination, and finish with education. The whole of life, from the
-              moment you are born to the moment you die, is a process of learning."
+              Until now, in my life, I have experienced both energetic moments full of
+              variety and challenges as well as periods of calm and stability. I consider
+              myself tolerant, respectful, open-minded and honest. I love listening to
+              people’s stories and learning about different cultures.
             </p>
-            <p>Jiddu Krishnamurti.</p>
-            <span class="entypo-quote"></span>
-          </blockquote>
-        </div>
-        <div class="block">
-          <h2>A few words about me</h2>
-          <p>
-            Until now, in my life, I change from active moments with a lot of
-            variety, challenges and improvisations, to moments of tranquility and
-            stability, being difficult to stay in a place during a long time. I
-            consider myself a tolerant and respectful person with open mind and quite
-            honest. I really like to listen people stories and backgrounds and their
-            different experiences around the world.
-          </p>
-        </div>
-        <div class="horizontal_line">
-          <div class="line_left"></div>
-          <div class="left_circle"></div>
-          <div class="central_circle"></div>
-          <div class="right_circle"></div>
-          <div class="line_right"></div>
-        </div>
-        <div class="block">
-          <h2>Philosophy</h2>
-          <p>
-            I belive in ethic and moral not in imposed rules that you "have to" do
-            or follow.
-          </p>
-          <div class="philosophy_content">
+          </div>
+          <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+          </div>
+          <div class="block">
+            <h2>Philosophy</h2>
             <p>
-              I believe life is made from different shades of grey, not from black and
-              white. Furthermore, as a human being with rationality, I think it is our
-              duty to take care of the world and treat others as one would like others to
-              treat oneself. This way of perceiving reality affects my beliefs and my
-              way of behaving. Summarizing on several points:
+              I believe in ethics and morals, not in imposed rules that you "have to" follow.
+            </p>
+            <div class="philosophy_content">
+              <p>
+                I see life in many shades instead of black and white. I think it is our duty
+                as rational beings to care for the world and treat others as we wish to be
+                treated. In summary:
+              </p>
+              <ul>
+                <li>Pragmatic</li>
+                <li>Honest</li>
+                <li>Respectful</li>
+                <li>Open-minded</li>
+                <li>Coherent</li>
+              </ul>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div class="horizontal_line">
+            <div class="line_left"></div>
+            <div class="left_circle"></div>
+            <div class="central_circle"></div>
+            <div class="right_circle"></div>
+            <div class="line_right"></div>
+          </div>
+          <div class="last block">
+            <h2>Interests & Hobbies</h2>
+            <p>
+              Technology and human behavior shape most of my interests:
             </p>
             <ul>
-              <li>Pragmatic</li>
-              <li>Honest</li>
-              <li>Respectful</li>
-              <li>Open-minded</li>
-              <li>Coherent</li>
+              <li>Traveling & Visiting new places</li>
+              <li>Meeting diverse people</li>
+              <li>Collecting unique experiences</li>
+              <li>Hiking and Biking</li>
+              <li>Web Development</li>
+              <li>Gaming</li>
+              <li>Manga and Anime</li>
             </ul>
-            <div class="clear"></div>
           </div>
         </div>
-        <div class="horizontal_line">
-          <div class="line_left"></div>
-          <div class="left_circle"></div>
-          <div class="central_circle"></div>
-          <div class="right_circle"></div>
-          <div class="line_right"></div>
+        <!-- Education 섹션 -->
+        <div id="education" class="content_section">
+          <div class="block">
+            <h1>Education</h1>
+            <div class="block">
+              <h2>B.Sc. in Computer Science</h2>
+              <p>University of Example (2010 - 2014)</p>
+            </div>
+            <div class="block">
+              <h2>M.Sc. in Software Engineering</h2>
+              <p>Example Institute (2014 - 2016)</p>
+            </div>
+          </div>
         </div>
-        <div class="last block">
-          <h2>Interests & Hobbies</h2>
-          <p>
-            I'm passionate about technology and human behavior, both determine almost
-            all my interests and hobbies:
-          </p>
-          <ul>
-            <li>Visiting new places</li>
-            <li>Meeting people</li>
-            <li>Having new experiences</li>
-            <li>Hiking and Biking</li>
-            <li>Web Developing</li>
-            <li>Computer Gamming</li>
-            <li>Manga and Anime</li>
-          </ul>
+        <!-- Skills 섹션 -->
+        <div id="skills" class="content_section">
+          <div class="block">
+            <h1>Skills</h1>
+            <ul>
+              <li>HTML5 / CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React & Angular</li>
+              <li>Responsive Web Design</li>
+              <li>RESTful APIs</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Work Experience 섹션 -->
+        <div id="work" class="content_section">
+          <div class="block">
+            <h1>Work Experience</h1>
+            <div class="block">
+              <h2>Frontend Developer at ExampleCorp</h2>
+              <p>(2016 - 2019)</p>
+              <p>
+                Developed responsive web applications, enhanced user interfaces and collaborated with design teams.
+              </p>
+            </div>
+            <div class="block">
+              <h2>Senior Frontend Developer at SampleTech</h2>
+              <p>(2019 - Present)</p>
+              <p>
+                Leading a team in creating modern, accessible user interfaces and improving performance and scalability.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Featured Projects 섹션 -->
+        <div id="projects" class="content_section">
+          <div class="block">
+            <h1>Featured Projects</h1>
+            <div class="block">
+              <h2>Project One</h2>
+              <p>A responsive e-commerce website using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="block">
+              <h2>Project Two</h2>
+              <p>An interactive dashboard application built with React and D3.js.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Awards 섹션 -->
+        <div id="awards" class="content_section">
+          <div class="block">
+            <h1>Awards</h1>
+            <ul>
+              <li>Best Frontend Developer 2018 - Example Award</li>
+              <li>Innovative Design Award 2019 - SampleTech</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="clear"></div>
@@ -628,5 +668,37 @@
         <p class="footer_name">Javier Latorre CV 2015</p>
       </div>
     </div>
+
+    <script>
+      // JS 코드: 페이지 전환(페이드 효과) 구현
+      document.addEventListener("DOMContentLoaded", function () {
+        var menuLinks = document.querySelectorAll(".header_menu a");
+        menuLinks.forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var targetId = this.getAttribute("data-target");
+            if (!targetId) return;
+            var current = document.querySelector(".content_section.active");
+            var target = document.getElementById(targetId);
+            if (current.id === targetId) return; // 같은 섹션이면 리턴
+
+            // 페이드 아웃 current 섹션
+            current.style.opacity = 0;
+            setTimeout(function () {
+              current.classList.remove("active");
+              // display:none 설정
+              current.style.display = "none";
+              // target 섹션 보이기 및 페이드 인
+              target.style.display = "block";
+              // 약간의 딜레이 후 opacity 적용
+              setTimeout(function () {
+                target.style.opacity = 1;
+                target.classList.add("active");
+              }, 50);
+            }, 500);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
